@@ -14,7 +14,7 @@ The RCF is reusable across multiple release engagements. It is not regenerated p
 | Owner | {team or role name — not an individual} |
 | Version | {version} |
 | Date | {date} |
-| Status | Draft / Validated / Frozen |
+| Status | Draft / Validated / Freeze Pending / Frozen |
 | Applicability Scope | {which systems, teams, or products this RCF governs} |
 
 ---

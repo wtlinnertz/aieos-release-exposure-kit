@@ -13,7 +13,7 @@ Generated from a frozen ORD and a frozen RCF. Must be validated and frozen befor
 | RP ID | RP-{PROJECT}-{NNN} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Frozen |
+| Status | Draft / Validated / Freeze Pending / Frozen |
 | Upstream ORD | {ORD ID} — Status: Frozen |
 | Upstream RCF | {RCF ID} — Status: Frozen |
 | Release Summary | {1-2 sentences describing what is being released} |

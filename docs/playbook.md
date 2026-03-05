@@ -261,3 +261,63 @@ A frozen artifact is immutable. It may not be amended, revised, or silently upda
 7. Human confirms PASS and freezes
 
 **Never ask the generating session to check its own output against the spec.** The validator is the quality gate — use it.
+
+---
+
+## Amendment Procedure
+
+A frozen artifact may be corrected in place without re-validation when **all** of the following criteria are met:
+
+1. The correction does not affect any field evaluated by a hard gate.
+2. The correction does not change scope, decisions, owners, or technical specifications.
+3. The correction does not affect any field referenced by a downstream artifact.
+
+**Procedure:** Make the correction and add an Amendment Log entry to the artifact's Document Control section: date, what changed, materiality criterion cited, and who authorized the change. No re-validation is required.
+
+**If there is any ambiguity** about whether a change is non-material, treat it as material and create a new artifact version. The amendment path must not become a workaround for the version protocol.
+
+---
+
+## Escalation Paths
+
+This kit may be the source of escalations to upstream kits when a rollback reveals that the issue is not a release execution problem but an upstream defect.
+
+### Trigger 3 — Release Rollback Caused by Code Defect (to EEK)
+
+**Signal:** A release has been rolled back and the root cause is a code or build defect in the system delivered by the Engineering Execution Kit.
+
+**What to do:**
+1. Complete the Release Record (RR) documenting the rollback. The RR §3 release disposition must capture: rollback executed, rollback reason, and root cause category (code defect).
+2. Create an escalation record documenting: trigger type (Trigger 3), triggering RR ID, defect description, and recommended action (EEK re-entry for defect fix).
+3. Send the escalation record to the EEK team. They will create a Kit Entry Record and handle the fix.
+4. Hold this release in rolled-back state pending the EEK fix and a new ORD. Do not attempt to re-release the original system.
+5. When the EEK delivers a new ORD for the fixed system, open a new Release Entry Record and begin a new release cycle.
+
+**A human must authorize** the escalation before sending. The release owner reviews the RR root cause assessment and confirms the defect is an EEK issue before escalating.
+
+### Trigger 4 — Release Rollback Revealing Wrong Feature (to PIK)
+
+**Signal:** A release has been rolled back and the assessment reveals the feature should not have been built as specified — the problem is product direction, not execution quality.
+
+**What to do:**
+1. Complete the Release Record documenting the rollback. The RR §3 release disposition must capture: rollback executed, rollback reason, and root cause category (product direction mismatch).
+2. Create an escalation record documenting: trigger type (Trigger 4), triggering RR ID, description of the product direction problem (what was built vs. what users/business actually needed), and recommended action (PIK discovery restart).
+3. Send the escalation record to both the EEK team and the PIK team. EEK needs to know the DPRD may be revisited. PIK needs the escalation record as discovery intake context.
+4. The PIK team assesses whether a new discovery engagement is warranted. This is their decision — the REK team does not dictate the PIK response.
+5. This feature will not be re-released until PIK and EEK have completed a new cycle.
+
+**A human must authorize** the Trigger 4 escalation. The decision that a rollback is a "wrong feature" rather than a "wrong execution" is a significant product judgment — it requires the release owner and a product stakeholder to agree.
+
+---
+
+## Principle File Revision
+
+When a principle file in `docs/principles/` changes, use the change categories defined in `aieos-spec/docs/principle-file-standard.md`:
+
+| Change Category | Version Bump | Re-Entry Impact |
+|----------------|-------------|-----------------|
+| **Minor** (clarification only) | `v_.x → v_.x+1` | No re-entry required; already-frozen artifacts remain valid |
+| **Significant** (new requirement or tightened constraint) | `v1.x → v1.x+1` | Review artifacts generated after the change against updated principles; already-frozen artifacts are grandfathered |
+| **Breaking** (removal or loosening) | `vN.x → vN+1.0` | Requires service owner authorization and documented business justification; re-entry may be warranted |
+
+Every change to a principle file must bump the version field, even minor clarifications.

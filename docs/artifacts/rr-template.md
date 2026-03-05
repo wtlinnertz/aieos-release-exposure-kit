@@ -24,7 +24,7 @@ Every evidence entry in this document must be:
 | RR ID | RR-{PROJECT}-{NNN} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Frozen |
+| Status | Draft / Validated / Freeze Pending / Frozen |
 | Upstream RP | {RP ID} — Status: Frozen |
 | Release Start | {date and time} |
 | Release End | {date and time — when the release was declared complete or abandoned} |

@@ -1,5 +1,7 @@
 # Progressive Delivery Principles
 
+Version: v1.0
+
 ## Scope
 
 These principles govern feature flag management and progressive rollout strategies for user-facing changes. They apply to any change that is exposed to users through a feature flag or percentage-based rollout. They do not govern backend changes with no user-facing exposure surface (those are governed solely by Release Safety Principles).

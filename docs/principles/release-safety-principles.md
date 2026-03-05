@@ -1,5 +1,7 @@
 # Release Safety Principles
 
+Version: v1.0
+
 ## Scope
 
 These principles govern all production deployments managed by this kit. They apply to any change that modifies the behavior of a production system, regardless of size or perceived risk. They do not cover internal or non-production deployments.
