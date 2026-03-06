@@ -38,10 +38,11 @@ Plus one entry gate:
 
 ## Utility Prompts
 
-Two utility prompts support the flow but do not produce governed artifacts:
+Three utility prompts support the flow but do not produce governed artifacts:
 
 - **Rollout Risk Assessment** (`rollout-risk-assessment-prompt.md`) — Adversarial analysis of the Release Plan before execution begins
 - **Release Communication** (`release-communication-prompt.md`) — Generates draft communications for internal stakeholders and customers from the Release Plan
+- **ORD Acceptance Check** (`ord-acceptance-check-prompt.md`) — Cross-boundary consistency check verifying the RER accurately reflects the frozen ORD: production readiness, monitoring systems, and open items from ORD §N. Run after RER draft and before the Release Entry Validator.
 
 ## Key Rules
 

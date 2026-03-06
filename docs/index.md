@@ -32,6 +32,7 @@ This kit governs Layer 5 of the AIEOS system: how production-ready systems are s
 |--------|---------|
 | `prompts/rollout-risk-assessment-prompt.md` | Adversarial analysis of Release Plan before execution |
 | `prompts/release-communication-prompt.md` | Draft release communications from Release Plan |
+| `prompts/ord-acceptance-check-prompt.md` | Cross-boundary check: verify RER accurately reflects ORD production readiness, monitoring systems, and open items |
 
 ---
 
