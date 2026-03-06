@@ -321,3 +321,37 @@ When a principle file in `docs/principles/` changes, use the change categories d
 | **Breaking** (removal or loosening) | `vN.x → vN+1.0` | Requires service owner authorization and documented business justification; re-entry may be warranted |
 
 Every change to a principle file must bump the version field, even minor clarifications.
+
+---
+
+## Deprecation and Sunset
+
+When a release engagement ends — either by completing the release, being cancelled mid-flow, or the system being decommissioned — the artifacts it produced transition to terminal lifecycle states. See the full protocol in `aieos-spec/docs/deprecation-protocol.md`.
+
+### When to Deprecate or Abandon
+
+| Situation | Action |
+|-----------|--------|
+| Release completed; RR frozen and handed off to RRK | No immediate action — artifacts become Deprecated when the system reaches end of life |
+| System decommissioned after releases are complete | `Deprecated` on all frozen REK artifacts for that system (RER, RP, RR, and any applicable RCF versions) |
+| Release cancelled after one or more artifacts are Frozen | `Deprecated` on frozen artifacts; `Abandoned` on any non-frozen artifacts |
+| Release cancelled before any artifact is Frozen | `Abandoned` on all in-progress artifacts |
+
+### Who Authorizes
+
+A release owner, engineering lead, or equivalent role must authorize the terminal state transition. Do not move to `Deprecated` or `Abandoned` without an authorizing name and role recorded in the Deprecation Notice.
+
+### How to Issue a Deprecation Notice (DN)
+
+1. Confirm the cancellation or conclusion decision is authorized.
+2. List all artifacts in the release series (RER, RCF, RP, RR) with their current status.
+3. For each artifact: if Frozen → `Deprecated`; if not Frozen → `Abandoned`.
+4. Create a DN record at `docs/sdlc/dn-{project-id}-{NNN}.md` using the format in `aieos-spec/docs/deprecation-protocol.md`.
+5. Update each artifact's Status field to its terminal state (non-material amendment; add Amendment Log entry per governance model §6).
+
+### What Does Not Change
+
+- Artifacts are retained — never deleted.
+- The RCF is shared across releases — deprecating one release's artifacts does not deprecate the RCF unless the RCF's entire scope is decommissioned.
+- Terminal state does not require re-validation.
+- If the release is rescheduled or reattempted, new artifacts with new IDs are produced.
