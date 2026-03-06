@@ -355,3 +355,26 @@ A release owner, engineering lead, or equivalent role must authorize the termina
 - The RCF is shared across releases — deprecating one release's artifacts does not deprecate the RCF unless the RCF's entire scope is decommissioned.
 - Terminal state does not require re-validation.
 - If the release is rescheduled or reattempted, new artifacts with new IDs are produced.
+
+---
+
+## Maintaining the Engagement Record
+
+The Engagement Record (ER) is a project-level artifact that lives in the consuming project at `docs/engagement/er-{initiative}.md`. It spans all AIEOS layers and is maintained by each kit's operators as work passes through. The ER spec and format are defined in `aieos-spec/docs/engagement-record-spec.md`.
+
+**REK maintains the Layer 5 section of the ER.**
+
+### What to Update During Release
+
+| Trigger | ER update |
+|---------|-----------|
+| RER frozen | Add RER ID to §4 artifact table |
+| RCF version confirmed | Add RCF ID and version to §4 |
+| RP frozen | Add RP ID to §4 |
+| RR frozen | Add RR ID to §4; record release disposition in §4 (Released / Rolled Back / Abandoned) |
+
+If the release is rolled back or abandoned, add a brief cause note in §4 alongside the disposition.
+
+### On Service End
+
+When issuing a Deprecation Notice: update §1 Status if appropriate and add the DN ID to §7 Initiative Outcome.

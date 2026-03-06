@@ -53,6 +53,7 @@ Three utility prompts support the flow but do not produce governed artifacts:
 - **No scope expansion** — RP scope must match RER declaration; RR must reflect RP exactly (deviations documented, not silently changed)
 - **No inferred information** — mark missing information explicitly, do not fill gaps
 - **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-spec/governance-model.md` (canonical authority). Do not edit kit copy directly; update `aieos-spec` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
+- **Engagement Record** — REK maintains the Layer 5 section of the project's ER. Add artifact IDs as they freeze and record the release disposition. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-spec/docs/engagement-record-spec.md`.
 
 ## Artifact Flow
 
