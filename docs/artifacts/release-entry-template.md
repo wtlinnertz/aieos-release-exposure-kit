@@ -11,6 +11,8 @@ This record is **human-authored**. It is validated against `release-entry-spec.m
 - Record ID: (format: RER-{PROJECT}-{NNN})
 - Date:
 - Release Summary: (1-2 sentences describing what is being released)
+- Governance Model Version: 1.0
+- Prompt Version: N/A
 
 ---
 

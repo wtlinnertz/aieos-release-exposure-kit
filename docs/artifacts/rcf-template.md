@@ -16,6 +16,8 @@ The RCF is reusable across multiple release engagements. It is not regenerated p
 | Date | {date} |
 | Status | Draft / Validated / Freeze Pending / Frozen |
 | Applicability Scope | {which systems, teams, or products this RCF governs} |
+| Governance Model Version | 1.0 |
+| Prompt Version | {prompt version} |
 
 ---
 
