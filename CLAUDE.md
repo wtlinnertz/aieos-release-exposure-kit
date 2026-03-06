@@ -52,8 +52,8 @@ Three utility prompts support the flow but do not produce governed artifacts:
 - **Separate generation and validation** — different AI sessions to prevent self-validation bias
 - **No scope expansion** — RP scope must match RER declaration; RR must reflect RP exactly (deviations documented, not silently changed)
 - **No inferred information** — mark missing information explicitly, do not fill gaps
-- **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-spec/governance-model.md` (canonical authority). Do not edit kit copy directly; update `aieos-spec` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
-- **Engagement Record** — REK maintains the Layer 5 section of the project's ER. Add artifact IDs as they freeze and record the release disposition. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-spec/docs/engagement-record-spec.md`.
+- **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-governance-foundation/governance-model.md` (canonical authority). Do not edit kit copy directly; update `aieos-governance-foundation` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
+- **Engagement Record** — REK maintains the Layer 5 section of the project's ER. Add artifact IDs as they freeze and record the release disposition. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-governance-foundation/docs/engagement-record-spec.md`.
 
 ## Artifact Flow
 
@@ -93,6 +93,6 @@ Step 3: Release Record → generate from evidence + RP → validate → freeze
 
 ## Building or Auditing AIEOS Kits
 
-- `aieos-spec/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
-- `aieos-spec/docs/philosophy.md` — design rationale for governance model decisions
-- `aieos-spec/docs/layer-model.md` — seven-layer model and kit registry
+- `aieos-governance-foundation/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
+- `aieos-governance-foundation/docs/philosophy.md` — design rationale for governance model decisions
+- `aieos-governance-foundation/docs/layer-model.md` — seven-layer model and kit registry

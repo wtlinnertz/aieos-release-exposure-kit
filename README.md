@@ -73,4 +73,4 @@ CLAUDE.md              # AI operating instructions
 | **5. Release & Exposure** | **`aieos-release-exposure-kit`** | **Built** |
 | 6. Reliability & Resilience | `aieos-reliability-resilience-kit` | Planned |
 
-See `aieos-spec/docs/layer-model.md` for the full seven-layer model.
+See `aieos-governance-foundation/docs/layer-model.md` for the full seven-layer model.
