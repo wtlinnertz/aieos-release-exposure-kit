@@ -62,6 +62,16 @@ This kit governs Layer 5 of the AIEOS system: how production-ready systems are s
 
 ---
 
+## Guides
+
+| Document | Purpose |
+|----------|---------|
+| `session-setup.md` | Per-artifact setup checklists, pre-flight gate checks, and common failure reminders |
+| `troubleshooting.md` | Gate failure remediation guide |
+| `entry-from-eek.md` | Boundary briefing when arriving from the Engineering Execution Kit |
+
+---
+
 ## Tests
 
 | File | Contents |

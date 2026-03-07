@@ -70,7 +70,7 @@ Step 3: Release Record → generate from evidence + RP → validate → freeze
 
 ## Boundary Contracts
 
-- **Upstream:** Receives a frozen ORD from the Engineering Execution Kit (Layer 4). The ORD must have passed all 8 EEK hard gates and be in Frozen status. Confirmed via Release Entry Record §2.
+- **Upstream:** Receives a frozen ORD from the Engineering Execution Kit (Layer 4). The ORD must have passed all 8 EEK hard gates and be in Frozen status. Confirmed via Release Entry Record §2. See `docs/entry-from-eek.md` for the boundary briefing.
 - **Downstream:** Produces a frozen Release Record that Layer 6 (Reliability & Resilience) uses as input. The RR handoff section (§7) explicitly documents what is in production, what monitoring is active, and the SLO baseline.
 
 ## File Naming
@@ -89,6 +89,8 @@ Step 3: Release Record → generate from evidence + RP → validate → freeze
 - Read the playbook (`docs/playbook.md`) for the full process definition
 - Read the governance model (`docs/governance-model.md`) for structural rules
 - Check `docs/how-to-use-with-ai.md` for session setup instructions
+- Use `docs/session-setup.md` for per-artifact setup checklists and pre-flight gate checks
+- Use `docs/troubleshooting.md` when a validator returns FAIL — maps each gate failure to a specific remediation
 - Reference `examples/basic-release/` for a complete worked example
 
 ## Building or Auditing AIEOS Kits
