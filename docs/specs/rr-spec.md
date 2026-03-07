@@ -6,6 +6,14 @@ The RR is an **evidence artifact** — it does not define new requirements or re
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a postmortem or incident analysis.** The RR is a structured evidence record of what actually happened during the release. Analysis of systemic causes, lessons learned, and reliability implications belong downstream in the Layer 6 RHR or ODK PMR.
+- **Not a revised Release Plan.** Deviations from the RP are documented in the RR; the RP remains frozen. The RR does not retroactively edit or replace the RP.
+- **Not an assertion document.** Every entry in the RR must be backed by concrete evidence (logs, metric values, decision records) — not summary statements or inferences.
+
+---
+
 ## Purpose
 
 The Release Record serves three roles:

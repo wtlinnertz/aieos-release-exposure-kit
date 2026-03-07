@@ -6,6 +6,14 @@ The RP is **per-release** — it is generated for each release engagement and is
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a deployment runbook.** The RP defines the release strategy and decision conditions — which stages, what triggers, what rollback conditions. The actual execution procedures are in the ORD §8 runbook, which the RP references.
+- **Not a Release Context File.** The RCF defines organizational policy; the RP applies that policy to one specific release. The RP must not define new organizational standards.
+- **Not a Release Record.** The RP describes what will happen; the RR documents what actually happened. The RP is frozen before execution begins and must not be modified afterward.
+
+---
+
 ## Purpose
 
 The Release Plan defines:

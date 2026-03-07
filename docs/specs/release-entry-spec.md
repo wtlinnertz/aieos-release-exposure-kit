@@ -6,6 +6,14 @@ This is a **boundary contract**, not a governed artifact. The record is human-au
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a Release Plan.** The RER is an entry gate that confirms prerequisites for release planning — it does not define the release strategy or execution approach. Those belong in the RP.
+- **Not an authorization to release.** The RER authorizes beginning release planning. Actual release execution requires a validated and frozen RP plus a completed Pre-Release Authorization Checklist.
+- **Not a substitute for the ORD.** The RER confirms the ORD is frozen; it does not summarize or replace its content.
+
+---
+
 ## Purpose
 
 The release entry spec serves two roles:

@@ -6,6 +6,14 @@ The RCF is **organizational-level and reusable** — it is authored once per org
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a Release Plan.** The RCF defines organizational policy reusable across all releases. A Release Plan (RP) translates the RCF's standards into the specific strategy for one release engagement.
+- **Not a deployment runbook.** The RCF defines standards (what is required); deployment procedures are in the ORD (how to execute it).
+- **Not a project-level document.** The RCF is organizational scope — it applies to all releases within its stated scope, not to one initiative. Project-specific release decisions belong in the RP.
+
+---
+
 ## Purpose
 
 The RCF serves two roles:
