@@ -1,5 +1,7 @@
 # Release Record — Specification
 
+Version: v1.0
+
 The Release Record (RR) is the terminal artifact of the Release & Exposure Kit. It documents what actually happened during a release: the deployment evidence, exposure decisions made at each stage, monitoring observations during the watch period, and the final state of the system. It declares the release disposition and provides the handoff package to the Reliability & Resilience Kit (Layer 6).
 
 The RR is an **evidence artifact** — it does not define new requirements or revise the plan. Every entry traces to the Release Plan and documents what was observed, decided, or deviated.
@@ -117,12 +119,14 @@ Every evidence entry in this document must meet these properties:
 - Any alert that fired during the watch period must be documented: which alert, when, what response was taken, and outcome
 - The final metric values at close of watch period must be documented
 - If the watch period ended before the RP-specified duration (release abandoned or rolled back), the actual duration must be stated
+- If the watch period was shortened for reasons other than rollback or abandonment (e.g., mock provider verification, test environment constraints), the deviation must document: (1) what was shortened and by how much, (2) what alternative evidence substitutes for the shortened observation period, and (3) when and under what conditions the full-duration watch period will be executed
 
 **Failure Examples**
 - "Metrics were within acceptable range" — not evidence
 - Alert fired but not documented
 - Watch period stated as completed when release was rolled back early
 - Final metric values absent
+- Watch period shortened without documenting the deviation rationale and compensating evidence
 
 ### Release Disposition
 **Rules**
@@ -146,6 +150,7 @@ Every evidence entry in this document must meet these properties:
 - The pre-release SLO baseline must be referenced or stated (sourced from ORD or first-release documentation)
 - Any open incidents at handoff time must be listed (or "None")
 - Recommended Layer 6 watch items must be listed — what aspects of the system's behavior in production should receive elevated attention during the first period of operation
+- If any SLO baselines are deferred (not yet established at release time), each deferred baseline must include: (1) a concrete capture trigger describing when the baseline will be collected (e.g., "on first successful generation request with a real LLM provider"), (2) the metric name(s) to be baselined, and (3) where the captured baseline will be recorded (e.g., "SRER intake form §SLO Baseline" or a specific monitoring system). Deferred baselines without a capture trigger and target location are not acceptable — they rely on operator memory and are likely to be forgotten.
 
 **Failure Examples**
 - Handoff section absent
@@ -153,6 +158,7 @@ Every evidence entry in this document must meet these properties:
 - SLO baseline absent
 - Open incidents not assessed (section blank rather than "None")
 - No recommended watch items (even "None identified" is acceptable if documented)
+- Deferred baseline listed as "to be determined later" without a capture trigger or target location
 
 ---
 

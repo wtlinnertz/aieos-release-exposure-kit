@@ -30,6 +30,8 @@ Every evidence entry in this document must be:
 | Release End | {date and time — when the release was declared complete or abandoned} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 | Release Owner | {named individual} |
 
 ---

@@ -1,5 +1,7 @@
 # Release Plan — Specification
 
+Version: v1.0
+
 The Release Plan (RP) is the initiative-specific artifact that defines how a specific system or feature will be released to production. It translates the operational readiness evidence from the ORD and the organizational standards from the RCF into a concrete, executable release strategy.
 
 The RP is **per-release** — it is generated for each release engagement and is not reused.
@@ -85,6 +87,8 @@ A frozen RP, combined with a completed Pre-Release Authorization Checklist, is t
 - Feature flag configuration for each stage must be stated: flag name, value at each stage, and who sets it
 - The audience targeting logic for segment-based rollout must be defined as evaluable criteria
 
+**Solo-operator note:** For local tools, CLI applications, or other systems with no shared infrastructure and no multi-user exposure surface, direct-full exposure is an acceptable strategy. The exception justification should state why progressive exposure does not apply (e.g., "local CLI tool — no shared infrastructure, no partial rollout mechanism, single user"). This is not an exemption from the rule — it is a legitimate application of the exception criteria.
+
 **Failure Examples**
 - Only one stage defined (full exposure) without exception justification
 - Trigger to proceed is "team decides" rather than an observable signal with threshold
@@ -100,12 +104,15 @@ A frozen RP, combined with a completed Pre-Release Authorization Checklist, is t
 - The decision authority must be specified: who can authorize a rollback decision and who escalates if that person is unavailable
 - The maximum time window for making a rollback decision after a condition is triggered must be stated
 
+**Solo-operator note:** For initiatives with a single operator, the responsible party and decision authority may be the same person. The escalation path may state "release is paused until operator is available" if no backup is designated, provided this is an explicit documented decision — not an omission. The rationale for simplified rollback authority must be stated (e.g., "single operator — no escalation path available; release is paused on any rollback trigger until operator resumes").
+
 **Failure Examples**
 - "Rollback if things look bad" — not a condition
 - Only one condition defined
 - No reference to ORD rollback procedure
 - Responsible party is "the team" or unnamed
 - Decision window absent
+- Solo-operator escalation section left blank without documented justification
 
 ### Communication Plan
 **Rules**

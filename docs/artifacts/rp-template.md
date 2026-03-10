@@ -19,6 +19,8 @@ Generated from a frozen ORD and a frozen RCF. Must be validated and frozen befor
 | Release Summary | {1-2 sentences describing what is being released} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 

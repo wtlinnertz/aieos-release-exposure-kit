@@ -372,6 +372,7 @@ The Engagement Record (ER) is a project-level artifact that lives in the consumi
 | RCF version confirmed | Add RCF ID and version to §4 |
 | RP frozen | Add RP ID to §4 |
 | RR frozen | Add RR ID to §4; record release disposition in §4 (Released / Rolled Back / Abandoned) |
+| Significant decision made | Add entry to §4 Key Decisions — release type justification, deviations from RP during execution, gate failures or validator issues |
 
 If the release is rolled back or abandoned, add a brief cause note in §4 alongside the disposition.
 

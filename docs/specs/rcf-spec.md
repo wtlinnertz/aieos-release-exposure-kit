@@ -1,5 +1,7 @@
 # Release Context File — Specification
 
+Version: v1.0
+
 The Release Context File (RCF) is an organizational policy artifact that defines the standards, constraints, and requirements that govern all releases within its stated scope. It translates organizational release policy into enforceable guardrails that constrain Release Plans.
 
 The RCF is **organizational-level and reusable** — it is authored once per organizational scope and reused across multiple releases without modification, until the organization's release policy changes.

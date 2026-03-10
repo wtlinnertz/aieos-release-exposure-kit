@@ -18,6 +18,8 @@ The RCF is reusable across multiple release engagements. It is not regenerated p
 | Applicability Scope | {which systems, teams, or products this RCF governs} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 

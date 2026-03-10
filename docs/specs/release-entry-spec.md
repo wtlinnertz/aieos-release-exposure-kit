@@ -1,5 +1,7 @@
 # Release Entry Record — Specification
 
+Version: v1.0
+
 The Release Entry Record is a lightweight gate that must be completed before beginning any release planning in the Release & Exposure Kit. It confirms the system is operationally ready for release, the release is appropriately authorized, and a named release owner has accepted accountability.
 
 This is a **boundary contract**, not a governed artifact. The record is human-authored. It is validated against this spec before release planning begins.
@@ -80,11 +82,13 @@ The release entry spec serves two roles:
 - A named individual must be identified as release owner
 - The release owner's authorization level must be stated (e.g., "senior engineer — authorized up to 50% exposure without escalation")
 - Authorization level must be consistent with what the Release Context File defines (if an RCF exists); if no RCF exists, the authorization level stated here governs this release
+- Pseudonyms are acceptable in place of a legal name when paired with a traceability note stating where the pseudonym-to-identity mapping is maintained (e.g., "Pseudonym — real identity on file in [system/location]"). The purpose is traceability, not public disclosure.
 
 **Failure Examples**
 - "The team" — not a named individual
 - Authorization level absent
 - Release owner named but authorization level not stated
+- Pseudonym used without a traceability note linking to real identity
 
 ### Priority Confirmation
 **Rules**
@@ -104,7 +108,7 @@ The release entry spec serves two roles:
 
 - Release type must be selected from the enumerated list (canary / blue-green / rolling / direct-full)
 - ORD ID must reference a specific document ID, not a URL shortener or informal nickname
-- Release owner must be a person's name, not a team name or role title
+- Release owner must be a person's name or pseudonym (with traceability note), not a team name or role title
 
 ---
 
