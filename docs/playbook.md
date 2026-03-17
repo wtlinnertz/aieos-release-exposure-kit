@@ -16,6 +16,9 @@ Step 0: Release Entry Gate
 Step 1: Release Context File (RCF)
         │ Frozen RCF (may reuse existing)
         ▼
+Step 1a: Release Safety Assessment (RSA)
+        │ Frozen RSA
+        ▼
 Step 2: Release Plan (RP)
         │ Frozen RP + Pre-Release Authorization Checklist
         ▼
@@ -107,6 +110,37 @@ If a frozen RCF already exists for the organizational scope covering this releas
 
 ---
 
+## Step 1a: Release Safety Assessment
+
+**What:** Aggregate risk evidence from upstream kits (QAK, SCK, EEK) into a structured safety brief. The RSA consolidates quality, security, and deployment risk signals into an actionable risk profile that informs the Release Plan.
+
+**Spec:** `docs/specs/rsa-spec.md`
+**Template:** `docs/artifacts/rsa-template.md`
+**Prompt:** `docs/prompts/rsa-prompt.md`
+**Validator:** `docs/validators/rsa-validator.md`
+**Gate:** Validator PASS + human freeze
+**Output:** Frozen Release Safety Assessment (RSA)
+
+### Steps
+
+1. Collect all available upstream risk evidence:
+   - Frozen QGR from QAK (if adopted)
+   - Frozen TM and SAR from SCK (if adopted)
+   - Frozen ORD from EEK (for operational readiness evidence)
+2. Run `rsa-prompt.md` with the frozen RER, frozen RCF, and all available upstream evidence as inputs
+3. Review the generated RSA:
+   - Confirm all upstream evidence is accurately cited (no invented analysis)
+   - Confirm all four risk dimensions are covered in the Aggregate Risk Profile
+   - Confirm safeguards are concrete and RP-implementable
+   - Confirm residual risks have acceptance rationale
+4. Run `rsa-validator.md` against the RSA
+5. Fix any blocking issues; re-run until PASS
+6. Complete the Freeze Declaration
+
+**Note:** The RSA does not perform its own quality, security, or risk analysis. It aggregates findings from upstream kits. If QAK or SCK are not adopted for this initiative, the RSA documents the absence of that evidence and relies on ORD for available quality/security signals.
+
+---
+
 ## Step 2: Release Plan
 
 **What:** Define the concrete, executable release strategy for this specific release. The RP translates ORD runbooks and RCF standards into deployment steps, exposure stages, rollback conditions, and monitoring protocols.
@@ -120,7 +154,7 @@ If a frozen RCF already exists for the organizational scope covering this releas
 
 ### Steps
 
-1. Run `rp-prompt.md` with the frozen ORD, frozen RCF, and frozen RER as inputs
+1. Run `rp-prompt.md` with the frozen ORD, frozen RCF, frozen RER, and frozen RSA as inputs
 2. Review the generated RP — the release owner must confirm:
    - Deployment steps match actual ORD runbook procedures
    - Rollback conditions are observable and thresholds are realistic
@@ -238,6 +272,7 @@ The Layer 6 kit uses the RR §7 handoff section as its upstream boundary contrac
 |----------|-----------|------|
 | Release Entry Record | Release owner | Validator PASS |
 | Release Context File | Team or role with release policy authority | Validator PASS |
+| Release Safety Assessment | Release owner or risk delegate | Validator PASS |
 | Release Plan | Release owner | Validator PASS |
 | Release Record | Release owner | Validator PASS |
 
@@ -370,6 +405,7 @@ The Engagement Record (ER) is a project-level artifact that lives in the consumi
 |---------|-----------|
 | RER frozen | Add RER ID to §4 artifact table |
 | RCF version confirmed | Add RCF ID and version to §4 |
+| RSA frozen | Add RSA ID to §4 artifact table |
 | RP frozen | Add RP ID to §4 |
 | RR frozen | Add RR ID to §4; record release disposition in §4 (Released / Rolled Back / Abandoned) |
 | Significant decision made | Add entry to §4 Key Decisions — release type justification, deviations from RP during execution, gate failures or validator issues |

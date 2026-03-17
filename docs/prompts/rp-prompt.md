@@ -20,6 +20,7 @@ Before generating, confirm you have all of the following:
 1. **Frozen ORD** (Operational Readiness Document) — confirmed Frozen status; provides deployment runbook procedures (§8), operational evidence, and metric baselines
 2. **Frozen RCF** (Release Context File) — confirmed Frozen status; provides organizational standards that constrain this plan (permitted strategies, exposure increments, observation periods, communication requirements, monitoring standards)
 3. **Frozen RER** (Release Entry Record) — confirmed Frozen status; provides declared release scope and release owner
+4. **Frozen RSA** (Release Safety Assessment) — confirmed Frozen status; provides aggregated risk profile and recommended safeguards that inform RP exposure pacing, monitoring, and rollback decisions
 
 **Optional:**
 - Previous RP for this release (for re-entry or amendment context)
@@ -57,6 +58,7 @@ Generate the RP following the template structure exactly. For each section:
 ### §4 Rollback Specification
 - Define at least two rollback conditions as concrete, observable signals with numeric thresholds (e.g., "error rate exceeds 0.5% sustained for 5 minutes" — not "if things look bad")
 - Include at minimum one error signal condition and one latency/performance signal condition
+- Reference RSA Recommended Safeguards (§6) for any additional rollback trigger conditions identified by the risk assessment
 - Reference the ORD §8 rollback procedure explicitly — do not write "per ORD"
 - Name the responsible party for triggering rollback (a named person or named role — not "the team")
 - State the decision authority: who can authorize rollback and who escalates if unavailable
@@ -72,6 +74,7 @@ Generate the RP following the template structure exactly. For each section:
 - Name the specific metrics that will be watched — the actual metric names as they appear in the monitoring system, not categories ("error rate" is a category; the metric name is what you specify)
 - State the baseline value for each metric (from ORD evidence, or document "baseline not yet established — first release")
 - Define alert thresholds as deviations from baseline or absolute values consistent with the RCF alert threshold policy
+- Incorporate RSA Recommended Safeguards that specify monitoring enhancements
 - State the watch period as a clock duration; confirm it meets the RCF minimum watch period for each exposure stage
 - Define a check-in schedule: how often the release owner or designated monitor reviews metrics during the watch period
 - State success criteria: what signals confirm the stage is stable and expansion can proceed
@@ -120,7 +123,7 @@ Before outputting the final document, verify each hard gate:
 - **exposure_specification** — At least two stages (or direct-full with documented exception); each stage has observable proceed trigger with threshold; each stage has hold action; RCF increment and observation period complied with; flag configuration per stage stated?
 - **rollback_specification** — At least two conditions as observable signals with numeric thresholds; ORD §8 rollback referenced; named responsible party; decision authority and time window stated?
 - **communication_plan** — All RCF-required audiences covered; each communication has content, timing, channel, owner; customer notification addressed or explicitly exempted?
-- **monitoring_plan** — Named metrics (not categories); baseline values stated; alert thresholds consistent with RCF policy; watch period as clock duration meeting RCF minimum; check-in schedule; success criteria?
+- **monitoring_plan** — Named metrics (not categories); baseline values stated; alert thresholds consistent with RCF policy; watch period as clock duration meeting RCF minimum; check-in schedule; success criteria? RSA safeguards incorporated?
 - **scope_bounded** — RP scope matches RER declaration; no scope beyond RER?
 - **readiness** — Open Issues section present; no issues marked "Blocks Release: Yes"?
 

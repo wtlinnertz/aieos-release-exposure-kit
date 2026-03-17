@@ -24,11 +24,12 @@ tests/                 # Structural integrity checks
 
 ## Artifact Types
 
-This kit produces three governed artifact types in sequence:
+This kit produces four governed artifact types in sequence:
 
 1. **Release Context File (RCF)** — Organizational release policy (deployment standards, exposure standards, authorization model, communication requirements, monitoring requirements). Reusable across multiple releases within its scope.
-2. **Release Plan (RP)** — Initiative-specific release plan (deployment strategy, exposure stages, rollback conditions, communication plan, monitoring protocol).
-3. **Release Record (RR)** — Post-release evidence artifact documenting what happened (deployment evidence, exposure log, monitoring observations, final disposition, Layer 6 handoff).
+2. **Release Safety Assessment (RSA)** — Aggregates risk evidence from upstream kits (QAK, SCK, EEK) into a structured safety brief. Consolidates quality, security, and deployment risk into an actionable risk profile with recommended safeguards.
+3. **Release Plan (RP)** — Initiative-specific release plan (deployment strategy, exposure stages, rollback conditions, communication plan, monitoring protocol).
+4. **Release Record (RR)** — Post-release evidence artifact documenting what happened (deployment evidence, exposure log, monitoring observations, final disposition, Layer 6 handoff).
 
 Each artifact type has exactly four governing files: spec, template, prompt, validator.
 
@@ -61,7 +62,9 @@ Three utility prompts support the flow but do not produce governed artifacts:
 Step 0: Release Entry Record → validate → freeze → authorize release planning
 Step 1: Release Context File (or reuse existing frozen RCF)
         → generate from intake → validate → freeze
-Step 2: Release Plan → generate from ORD + RCF → validate → freeze
+Step 1a: Release Safety Assessment → generate from RER + RCF + upstream evidence
+         → validate → freeze
+Step 2: Release Plan → generate from ORD + RCF + RSA → validate → freeze
         → complete Pre-Release Authorization Checklist → begin execution
 [Release Execution — human + tooling; AI utility prompts support]
 Step 3: Release Record → generate from evidence + RP → validate → freeze
