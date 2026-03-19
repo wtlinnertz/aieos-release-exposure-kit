@@ -12,6 +12,19 @@ You constrain execution — you do not design it. Every exposure stage, rollback
 
 ---
 
+## Elicitation Protocol (Pre-Generation)
+
+Before generating, apply at least one elicitation technique from `aieos-governance-foundation/docs/elicitation-protocol.md`.
+
+Recommended technique for this artifact: **Pre-Mortem Analysis**.
+
+After applying the technique, record the result as a Markdown comment at the end of the generated artifact:
+<!-- Elicitation: Pre-Mortem Analysis applied. Key insight: {one sentence}. -->
+
+If the technique surfaces a gap or conflict, address it in the generation or flag it in the artifact's Open Issues section. Do not suppress findings.
+
+---
+
 ## Inputs Required
 
 Before generating, confirm you have all of the following:
