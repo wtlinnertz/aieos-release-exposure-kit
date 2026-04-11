@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "summary": "Release Plan RP-TASKFLOW-001 passes all 8 hard gates — upstream references confirmed frozen, deployment steps concrete with ORD runbook references, at least two exposure stages with observable proceed triggers, rollback conditions as measurable signals with decision window, all RCF communication audiences addressed, named metrics with baseline values and watch period meeting RCF minimum, scope matches RER, and no blocking open issues.",
+  "hard_gates": {
+    "upstream_references": "PASS",
+    "deployment_specification": "PASS",
+    "exposure_specification": "PASS",
+    "rollback_specification": "PASS",
+    "communication_plan": "PASS",
+    "monitoring_plan": "PASS",
+    "scope_bounded": "PASS",
+    "readiness": "PASS"
+  },
+  "blocking_issues": [],
+  "warnings": [
+    {
+      "description": "Stage 3 exposure increment (25% to 100%) is a 75-point jump, exceeding the RCF §3 maximum of 25 percentage points. The exception is documented in RP §3 with manager authorization reference SPR-2024-Q1-R03. Confirm the authorization reference is on file before execution begins.",
+      "location": "§3 Exposure Specification — RCF Compliance / Stage 3 exception justification"
+    },
+    {
+      "description": "notification.delivery_rate has no historical baseline — RP §6 correctly marks this as 'first release — no baseline' and sets an absolute threshold. Layer 6 should establish a baseline from the first stage observation.",
+      "location": "§6 Post-Release Monitoring Plan — notification.delivery_rate metric row"
+    },
+    {
+      "description": "The Pre-Release Authorization Checklist (§8) shows all items checked and signed — this indicates the checklist was completed before freeze rather than at execution time. Checklist should be left blank at freeze and completed immediately before execution begins.",
+      "location": "§8 Pre-Release Authorization Checklist"
+    }
+  ],
+  "completeness_score": "97"
+}

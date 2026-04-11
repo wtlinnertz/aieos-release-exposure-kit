@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "summary": "Release Context File RCF-TASKFLOW-001 passes all 7 hard gates — risk tiers defined with criteria, deployment strategies enumerated with verification requirements, exposure standards specified as concrete durations and percentages, authorization levels with thresholds, communication requirements with timing, monitoring requirements with metric categories, and all standards stated in enforceable language.",
+  "hard_gates": {
+    "document_control": "PASS",
+    "deployment_standards": "PASS",
+    "exposure_standards": "PASS",
+    "authorization_model": "PASS",
+    "communication_requirements": "PASS",
+    "monitoring_requirements": "PASS",
+    "standard_enforceability": "PASS"
+  },
+  "blocking_issues": [],
+  "warnings": [
+    {
+      "description": "Mobile app exception in §7 states it will be reviewed by end of Q2 2024. If the RCF is still in use after that date without review, the exception will be overdue. Track the review deadline.",
+      "location": "§7 Documented Exceptions — Mobile app releases"
+    },
+    {
+      "description": "Stage 3 jump from 25% to 100% (a 75-point increment) exceeds the RCF §3 maximum of 25 percentage points. While the RCF does include a Tier 2 exception pathway, Release Plans must document the specific exception justification in RP §3. Confirm this is addressed in the Release Plan before freezing.",
+      "location": "§3 Rollout Constraints — Maximum exposure increment"
+    }
+  ],
+  "completeness_score": "96"
+}
