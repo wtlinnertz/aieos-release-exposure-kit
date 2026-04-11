@@ -8,7 +8,7 @@ This document explains how to use AI tools effectively with the Release & Exposu
 
 Never run the generation prompt and validator for the same artifact in the same AI conversation session.
 
-**Why:** An AI session that generated content will defend that content. It will interpret ambiguous validator criteria in ways that favor the artifact it produced. This is not a bug — it is how language models work. Separation prevents self-validation bias.
+**Why:** An AI session that generated content will defend that content. It will interpret ambiguous validator criteria in ways that favor the artifact it produced. This is not a bug. It is how language models work. separation prevents self-validation bias.
 
 **How:**
 1. Session A: Run the generation prompt → get a draft artifact
@@ -19,7 +19,6 @@ Never run the generation prompt and validator for the same artifact in the same 
 
 This separation is a structural requirement, not a suggestion.
 
----
 
 ## Session Setup
 
@@ -43,15 +42,14 @@ Before running a validator, load:
 
 Start the session with:
 
-> I need to validate this artifact. Evaluate it strictly against the spec and produce the JSON output exactly as specified. Do not suggest how to fix issues — only identify what is missing or insufficient.
+> I need to validate this artifact. Evaluate it strictly against the spec and produce the JSON output exactly as specified. Do not suggest how to fix issues. Only identify what is missing or insufficient.
 
----
 
 ## Artifact-Specific Session Patterns
 
 ### Release Entry Record
 
-The RER is human-authored. AI is **not recommended** for RER generation — it requires information only the release owner knows (the authorization decision reference, the named owner, the ORD ID). Complete the template manually, then validate:
+The RER is human-authored. AI is **not recommended** for RER generation. It requires information only the release owner knows (the authorization decision reference, the named owner, the ord id). complete the template manually, then validate:
 
 ```
 Session: Validate RER
@@ -60,7 +58,7 @@ Input: release-entry-validator.md + rr-spec content + completed RER
 
 ### Release Context File (RCF)
 
-1. Complete the intake form manually (this is the most important step — the intake captures your org's actual standards)
+1. Complete the intake form manually (this is the most important step. The intake captures your org's actual standards)
 2. Human review of the intake form before AI generation
 3. Generation session: `rcf-prompt.md` + `rcf-spec.md` + completed intake form + principles files
 4. Validation session: `rcf-validator.md` + `rcf-spec.md` + draft RCF
@@ -70,7 +68,7 @@ Input: release-entry-validator.md + rr-spec content + completed RER
 ### Release Plan (RP)
 
 1. Generation session: `rp-prompt.md` + `rp-spec.md` + frozen ORD + frozen RCF + frozen RER
-2. Human review of the generated RP — specifically check rollback conditions (observable signals, not qualitative) and metric baselines (sourced from ORD, not invented)
+2. Human review of the generated RP. Specifically check rollback conditions (observable signals, not qualitative) and metric baselines (sourced from ord, not invented)
 3. Optional: Rollout risk assessment session: `rollout-risk-assessment-prompt.md` + frozen RP (separate session)
 4. Validation session: `rp-validator.md` + `rp-spec.md` + draft RP
 5. Fix blocking issues
@@ -78,16 +76,15 @@ Input: release-entry-validator.md + rr-spec content + completed RER
 
 ### Release Record (RR)
 
-The RR requires evidence collected during execution. AI structures the evidence — it does not create it.
+The RR requires evidence collected during execution. AI structures the evidence: it does not create it.
 
 1. Collect all execution evidence before starting the RR session: deployment logs, metric values with timestamps, alert records, decision records (who decided, when, why)
 2. Generation session: `rr-prompt.md` + `rr-spec.md` + frozen RP + collected evidence
-3. Review carefully: any "[EVIDENCE PENDING]" or "[REQUIRES CONCRETE EVIDENCE]" markers mean evidence is missing — do not freeze the RR until all evidence fields are populated
+3. Review carefully: any "[EVIDENCE PENDING]" or "[REQUIRES CONCRETE EVIDENCE]" markers mean evidence is missing. Do not freeze the rr until all evidence fields are populated
 4. Validation session: `rr-validator.md` + `rr-spec.md` + draft RR
 5. Fix blocking issues
 6. Human freeze
 
----
 
 ## What to Do When the Validator Finds Blocking Issues
 
@@ -99,9 +96,8 @@ The RR requires evidence collected during execution. AI structures the evidence 
 
 3. **Do not modify the validator to pass an artifact that should fail.** If the validator is identifying a genuine gap, fix the gap.
 
-4. **If a blocking issue appears incorrect,** check the spec directly. If the validator is wrong (a spec rule is not clearly reflected in the validator), this is a kit maintenance issue — note it, but still fix the actual artifact content.
+4. **If a blocking issue appears incorrect,** check the spec directly. If the validator is wrong (a spec rule is not clearly reflected in the validator), this is a kit maintenance issue. Note it, but still fix the actual artifact content.
 
----
 
 ## When Not to Use AI
 
@@ -118,13 +114,12 @@ The RR requires evidence collected during execution. AI structures the evidence 
 - Structuring execution evidence into the RR format
 - Drafting release communications for human review
 
----
 
 ## Prompting Tips
 
 **Be explicit about frozen status.** When providing upstream artifacts, state their status:
 
-> I'm providing the frozen ORD (status: Frozen, version: ORD-TASKFLOW-001). Do not modify its content — treat it as a read-only input.
+> I'm providing the frozen ORD (status: Frozen, version: ORD-TASKFLOW-001). Do not modify its content. Treat it as a read-only input.
 
 **Flag missing inputs rather than inferring.** If an upstream artifact is incomplete, ask the AI to mark missing information explicitly:
 

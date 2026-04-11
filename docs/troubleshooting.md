@@ -1,10 +1,10 @@
-# Troubleshooting Guide — Release Exposure Kit
+# Troubleshooting Guide: Release Exposure Kit
 
 ## How to Use This Guide
 
 When a validator returns FAIL, find the failing gate in the table below. The Remediation column describes the specific fix required. Reopen the artifact, apply the remediation, and rerun the validator in a new session.
 
-**Do not embed fix attempts in your validation session.** Validators and generation are separate sessions.
+Validators and generation are separate sessions. Don't embed fix attempts in your validation session.
 
 ---
 
@@ -59,5 +59,5 @@ This is a human-completed entry gate artifact. Fill all fields directly in the t
 | deployment_evidence | Deployment steps documented as assertions only | Evidence not gathered during execution | Replace assertions with retrievable evidence: log reference, timestamp, or CI run ID |
 | exposure_log | Exposure stages not logged | Stages assumed to have completed without documentation | Record each exposure stage outcome: the percentage reached, the duration, and the pass criteria result |
 | monitoring_observations | Monitoring section blank | Monitoring observations not recorded during release window | Record key metrics observed during the release window; state what was normal and what, if anything, was abnormal |
-| release_disposition | Disposition not from the enumerated values | Free-text disposition written | Use exactly one of: Released / Rolled Back / Held — with written rationale |
+| release_disposition | Disposition not from the enumerated values | Free-text disposition written | Use exactly one of: Released / Rolled Back / Held: with written rationale |
 | handoff_declaration | §7 Handoff to Layer 6 incomplete or absent | Layer 6 handoff not considered during RR completion | Complete §7 with: service name, SLO baseline values, known failure modes, current monitoring state, and reliability owner |

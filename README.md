@@ -2,13 +2,11 @@
 
 **Layer 5 of the AIEOS system — Release & Exposure**
 
-This kit governs how production-ready systems are shipped safely. It receives a frozen Operational Readiness Document (ORD) from the Engineering Execution Kit and produces a Release Record that documents what was released, how, and in what state — ready for handoff to the Reliability & Resilience Kit (Layer 6).
+This kit governs how production-ready systems are shipped safely. It receives a frozen Operational Readiness Document (ORD) from the Engineering Execution Kit and produces a Release Record that documents what was released, how, and in what state, ready for handoff to the Reliability & Resilience Kit (Layer 6).
 
----
+## What this kit does
 
-## What This Kit Does
-
-The Engineering Execution Kit (Layer 4) produces an ORD that declares a system is operationally ready for production. But "operationally ready" is not the same as "in production." This kit governs the gap:
+The Engineering Execution Kit (Layer 4) produces an ORD that declares a system is operationally ready for production. But "operationally ready" isn't the same as "in production." This kit fills that gap:
 
 - **Deployment strategy** — How is the system deployed? (canary, blue-green, rolling, direct)
 - **Progressive exposure** — How are users introduced to the change? (feature flags, percentage rollouts, segment targeting)
@@ -16,9 +14,7 @@ The Engineering Execution Kit (Layer 4) produces an ORD that declares a system i
 - **Release authorization** — Who authorizes release at each exposure stage?
 - **Post-release monitoring** — What do we watch, for how long, and what signals matter?
 
----
-
-## Artifact Types
+## Artifact types
 
 This kit produces three governed artifact types in sequence:
 
@@ -31,17 +27,13 @@ This kit produces three governed artifact types in sequence:
 
 Each governed artifact type has exactly four governing files: spec, template, prompt, validator.
 
----
-
-## Quick Start
+## Quick start
 
 1. Read `docs/playbook.md` — the complete process definition
 2. Read `docs/how-to-use-with-ai.md` — session setup and AI tool guidance
 3. See `examples/basic-release/` — a worked example (TaskFlow Notifications release)
 
----
-
-## Repository Structure
+## Repository structure
 
 ```
 docs/
@@ -62,9 +54,7 @@ tests/
 CLAUDE.md              # AI operating instructions
 ```
 
----
-
-## AIEOS Layer
+## AIEOS layer
 
 | Layer | Kit | Status |
 |-------|-----|--------|

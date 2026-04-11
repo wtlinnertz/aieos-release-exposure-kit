@@ -1,6 +1,6 @@
-# Basic Release Example — TaskFlow Notifications
+# Basic Release Example: TaskFlow Notifications
 
-This example walks through a complete Release & Exposure Kit flow for the TaskFlow Notifications feature release. It demonstrates the happy path: a canary release that progresses through three exposure stages and reaches full exposure without incident.
+This example walks through a complete Release & Exposure Kit flow for the TaskFlow Notifications feature release. It covers the happy path: a canary release that progresses through three exposure stages and reaches full exposure without incident.
 
 ---
 
