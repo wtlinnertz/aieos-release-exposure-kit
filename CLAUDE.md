@@ -101,3 +101,39 @@ Step 3: Release Record → generate from evidence + RP → validate → freeze
 - `aieos-governance-foundation/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
 - `aieos-governance-foundation/docs/philosophy.md` — design rationale for governance model decisions
 - `aieos-governance-foundation/docs/layer-model.md` — seven-layer model and kit registry
+
+---
+
+## Spec-Driven CI/CD — Release & Exposure Kit Context
+
+This repo is Layer 5: deployment strategy, progressive exposure, rollback conditions,
+release authorization. For spec-driven CI/CD, it gains a new terminal artifact: the CD spec.
+
+### What lives here for CI/CD (M5 deliverables)
+
+- CD spec authoring flow (downstream of release authorization)
+- Template: templates/cd-spec/python-k8s-flux.yaml (archetype-specific defaults)
+- Prompt: prompts/cd-spec-author.md (LLM-assisted interview including environment graph)
+- Spec validator integration
+- Freeze semantics: spec committed to target repo at .aieos/cd.spec.yaml, cached in artifact store
+
+### Implementation plan
+
+The full plan is at: `~/second-brain/AIEOS Spec-Driven CI-CD Implementation Plan.md`
+
+Read the M5 section before starting. Kit work depends on:
+- M1 frozen CD spec schema in `aieos-governance-foundation`
+- M3 runner interface (runner-interface.md) frozen in `aieos-governance-foundation`
+
+### Key design decisions
+
+- v1 ships one archetype: Python web service on Kubernetes via Flux.
+- CD spec models an environment graph (DAG with typed promotion edges).
+- Reserved extension points for v1.1: bake_duration, verification_interval, rollback_on_degradation, ephemeral environments.
+- CD spec authoring is heavier than CI because of the environment graph. Give it its own session design.
+
+### Conventions
+
+- This kit already has an established structure. Do not reorganize existing files.
+- New CD files go under templates/ and prompts/ alongside existing kit content.
+- Update the kit README to document how the CD spec artifact slots into the existing Layer 5 flow.
