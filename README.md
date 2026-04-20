@@ -64,3 +64,29 @@ CLAUDE.md              # AI operating instructions
 | 6. Reliability & Resilience | `aieos-reliability-resilience-kit` | Planned |
 
 See `aieos-governance-foundation/docs/layer-model.md` for the full seven-layer model.
+
+## Spec-driven CI/CD (M5.2)
+
+The kit's Layer-5 outputs now include a frozen **CD spec** that downstream
+execution consumes. The CD spec is authored AFTER release authorization
+and models the environment graph (DAG with typed promotion edges),
+per-environment verify actions, and rollback conditions.
+
+- **Template** `templates/cd-spec/python-k8s-flux.yaml` — starting point
+  for a three-environment deploy (`dev → staging → prod`) with
+  auto-promote dev→staging, manual-gate-required staging→prod, and
+  full verify chain (smoke everywhere; health + SLO in prod).
+- **Authoring prompt** `prompts/cd-spec-author.md` — step-by-step
+  interview focused on the environment graph, per-environment verify
+  selection, SLO windows, and rollback rules.
+- **Schema** — CD specs validate against
+  `aieos-governance-foundation/schema/cd-spec.schema.json` frozen at
+  `v1.0-cd-spec-schema`.
+- **Reserved v1.1 fields** — the schema accepts `bake_duration`,
+  `verification_interval`, `rollback_on_degradation`, and
+  `exposure_policy` as optional extension points; v1 leaves them null
+  or omits them.
+- **Freeze** — the authored spec is committed to the target repo at
+  `.aieos/cd.spec.yaml` and cached in the artifact store. The pipeline
+  runner (`aieos-pipeline-runner`) refuses unfrozen specs at execution
+  time.

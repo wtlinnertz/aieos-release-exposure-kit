@@ -1,0 +1,95 @@
+# AIEOS CD spec template — Python web service on Kubernetes via Flux (v1).
+#
+# Starting point for the CD spec authoring flow. Copy to your target repo
+# at .aieos/cd.spec.yaml, fill in the marked TODOs, and walk the
+# cd-spec-author prompt to tune the environment graph + verification
+# strategy. Validate against
+# aieos-governance-foundation/schema/cd-spec.schema.json before freeze.
+
+spec_version: "1.0.0"
+# Pinned digest from the CI run that produced the artifact. The CI and CD
+# specs are coupled: the runner refuses a CD run whose artifact_ref does
+# not resolve to a CI-produced artifact.
+artifact_ref: "TODO-registry/TODO-org/TODO-app@sha256:TODO"
+
+environments:
+  - name: dev
+    lifetime: persistent
+    actions:
+      - action: deploy.environment
+        criteria:
+          reconciled_within_seconds: 300
+      - action: verify.smoke
+        criteria:
+          expected_status: 200
+        depends_on:
+          - deploy.environment
+
+  - name: staging
+    lifetime: persistent
+    actions:
+      - action: deploy.environment
+        criteria:
+          reconciled_within_seconds: 300
+      - action: verify.smoke
+        criteria:
+          expected_status: 200
+        depends_on:
+          - deploy.environment
+
+  - name: prod
+    lifetime: persistent
+    actions:
+      - action: deploy.environment
+        criteria:
+          reconciled_within_seconds: 600
+      - action: verify.smoke
+        criteria:
+          expected_status: 200
+        depends_on:
+          - deploy.environment
+      - action: verify.health
+        criteria:
+          all_endpoints_healthy: true
+        depends_on:
+          - deploy.environment
+      - action: verify.slo
+        criteria:
+          min_success_rate: 0.99
+          window_seconds: 600
+        depends_on:
+          - deploy.environment
+
+promotions:
+  - from: dev
+    to: staging
+    type: auto-promote
+    # v1.1 reserved extension points — leave null for v1.
+    bake_duration: null
+    verification_interval: null
+    rollback_on_degradation: null
+
+  - from: staging
+    to: prod
+    type: manual-gate-required
+    bake_duration: null
+    verification_interval: null
+    rollback_on_degradation: null
+
+rollback_conditions:
+  trigger_on:
+    - verify.smoke FAIL
+    - verify.health FAIL
+    - verify.slo FAIL
+  rollback_to: previous_known_good
+
+policies:
+  timeout_seconds: 3600
+  retry:
+    max_retries: 0
+    backoff: none
+  adapter_preferences:
+    deploy.environment: adapter-flux-handoff
+    verify.smoke: adapter-http-smoke          # v1.1 adapter; v1 uses the mock for dry runs
+    verify.health: adapter-http-health         # v1.1
+    verify.slo: adapter-prom-slo               # v1.1
