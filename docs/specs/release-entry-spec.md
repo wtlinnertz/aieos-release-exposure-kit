@@ -1,6 +1,6 @@
 # Release Entry Record — Specification
 
-Version: v1.0
+Version: v1.1
 
 The Release Entry Record is a lightweight gate that must be completed before beginning any release planning in the Release & Exposure Kit. It confirms the system is operationally ready for release, the release is appropriately authorized, and a named release owner has accepted accountability.
 
@@ -28,6 +28,7 @@ The release entry spec serves two roles:
 ## Upstream Dependencies
 
 - Frozen Operational Readiness Document (ORD) from the Engineering Execution Kit — must be in Frozen status; all 8 hard gates must have passed
+- Frozen Readiness Confirmation (RC) from the Business Process Kit — required if BPK was adopted for this initiative (i.e., if a Process Impact Assessment was generated). If BPK was not adopted, state explicitly in §Completeness Checklist: 'BPK not adopted for this initiative — process impact confirmed as none.'
 
 ---
 
@@ -137,3 +138,4 @@ The release entry spec serves two roles:
 3. **release_scope** — What is being released declared; release type selected from enumerated list; initial exposure target stated
 4. **release_owner** — Named individual as release owner with authorization level stated
 5. **priority_confirmed** — Release authorization confirmed with a traceable reference; not inferred from ORD approval or sprint events
+6. **bpk_rc_status** (conditional) — When BPK was adopted (a PIA was generated for this initiative): a frozen RC must be referenced by ID in the RER. When BPK was not adopted: §Completeness Checklist must contain the exact phrase 'BPK not adopted for this initiative — process impact confirmed as none.' Silence fails this gate.

@@ -62,6 +62,7 @@ Before validating and freezing this record, confirm:
 - [ ] Named release owner (individual, not team) is present
 - [ ] Authorization level is stated
 - [ ] Priority confirmation has a traceable reference (not just "yes")
+- [ ] BPK disposition: [ ] Not adopted for this initiative — process impact confirmed as none. | [ ] Adopted — RC ID: {RC-ID-XXX}, Status: Frozen
 
 ---
 

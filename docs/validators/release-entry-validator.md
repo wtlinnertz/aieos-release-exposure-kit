@@ -24,7 +24,8 @@ OUTPUT FORMAT (MANDATORY):
     "upstream_reference": "PASS | FAIL",
     "release_scope": "PASS | FAIL",
     "release_owner": "PASS | FAIL",
-    "priority_confirmed": "PASS | FAIL"
+    "priority_confirmed": "PASS | FAIL",
+    "bpk_rc_status": "PASS | FAIL"
   },
   "blocking_issues": [
     {
@@ -69,6 +70,11 @@ GATE EVALUATION CRITERIA:
 - Authorization confirmation absent
 - Reference is "yes" or "we decided" with no traceable reference (date + approver, tracking system ID, or planning session record)
 - Reference is solely ORD approval, sprint completion, or PR merge — these do not constitute release authorization
+
+**bpk_rc_status** — FAIL if neither of the following is present in §Completeness Checklist:
+- A frozen RC ID reference (indicating BPK was adopted and the RC is confirmed Frozen), OR
+- The exact phrase 'BPK not adopted for this initiative — process impact confirmed as none.' (indicating BPK was not adopted and the absence of process impact is explicitly confirmed)
+Silence on BPK disposition fails this gate.
 
 DECISION RULE:
 - If ANY hard gate fails, status MUST be FAIL.
