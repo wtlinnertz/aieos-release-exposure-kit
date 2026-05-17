@@ -16,12 +16,13 @@ The Engineering Execution Kit (Layer 4) produces an ORD that declares a system i
 
 ## Artifact types
 
-This kit produces three governed artifact types in sequence:
+This kit produces five governed artifact types in sequence:
 
 | Step | Artifact | Purpose |
 |------|----------|---------|
 | 0 | Release Entry Record (RER) | Entry gate: confirms ORD is frozen, release is authorized |
 | 1 | Release Context File (RCF) | Org-level release policy (reusable across releases) |
+| 1a | Release Safety Assessment (RSA) | Aggregates risk evidence from upstream kits into an actionable safety brief |
 | 2 | Release Plan (RP) | Initiative-specific release plan |
 | 3 | Release Record (RR) | Post-release evidence artifact (what happened) |
 
