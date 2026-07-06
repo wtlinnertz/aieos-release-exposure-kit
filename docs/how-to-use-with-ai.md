@@ -19,7 +19,6 @@ Never run the generation prompt and validator for the same artifact in the same 
 
 This separation is a structural requirement, not a suggestion.
 
-
 ## Session Setup
 
 ### Generation Sessions
@@ -43,7 +42,6 @@ Before running a validator, load:
 Start the session with:
 
 > I need to validate this artifact. Evaluate it strictly against the spec and produce the JSON output exactly as specified. Do not suggest how to fix issues. Only identify what is missing or insufficient.
-
 
 ## Artifact-Specific Session Patterns
 
@@ -85,7 +83,6 @@ The RR requires evidence collected during execution. AI structures the evidence:
 5. Fix blocking issues
 6. Human freeze
 
-
 ## What to Do When the Validator Finds Blocking Issues
 
 1. **Read the blocking issue description carefully.** It identifies what is missing or insufficient, referenced to a section or field in the artifact.
@@ -97,7 +94,6 @@ The RR requires evidence collected during execution. AI structures the evidence:
 3. **Do not modify the validator to pass an artifact that should fail.** If the validator is identifying a genuine gap, fix the gap.
 
 4. **If a blocking issue appears incorrect,** check the spec directly. If the validator is wrong (a spec rule is not clearly reflected in the validator), this is a kit maintenance issue. Note it, but still fix the actual artifact content.
-
 
 ## When Not to Use AI
 
@@ -113,7 +109,6 @@ The RR requires evidence collected during execution. AI structures the evidence:
 - Identifying rollout risks before execution (rollout risk assessment)
 - Structuring execution evidence into the RR format
 - Drafting release communications for human review
-
 
 ## Prompting Tips
 
