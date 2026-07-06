@@ -25,7 +25,6 @@ This document explains how to adopt the Release & Exposure Kit in your organizat
 
 The structural rules are in `docs/governance-model.md`. They exist because the kit's value depends on them.
 
-
 ## Configuring the Release Context File
 
 The RCF is your primary configuration point. Use the intake form to capture your organization's standards before generating the RCF.
@@ -83,7 +82,6 @@ Key questions for your RCF:
 
 Flags that are never removed become permanent configuration. The cleanup date requirement prevents this.
 
-
 ## Scoping the Kit to Your Environment
 
 ### Single Team Adoption
@@ -100,7 +98,6 @@ Each team (or product area) authors its own RCF scoped to its systems. Cross-tea
 
 For large organizations with a central release policy team: the central team authors and owns the RCF. Individual product teams generate Release Plans (RPs) from the shared RCF. The RCF is a stable, infrequently-changed artifact; product teams do not modify it.
 
-
 ## What to Do on First Use
 
 1. **Fill out the intake form first** (`docs/artifacts/release-context-intake-template.md`). Don't start writing an RCF directly: the intake form organizes your thinking.
@@ -112,7 +109,6 @@ For large organizations with a central release policy team: the central team aut
 4. **Run the first release as a learning exercise.** Use `rollout-risk-assessment-prompt.md` on your first Release Plan to identify gaps in your planning before execution.
 
 5. **After your first release, review the RR** against what you expected. If your observation periods were too short, your thresholds too loose, or your monitoring missed signal. Update the rcf before the next release.
-
 
 ## When the RCF Needs to Change
 
@@ -132,7 +128,6 @@ For large organizations with a central release policy team: the central team aut
 - New deployment strategies added or removed
 - Observation period or increment limits change
 - Applicability scope changes
-
 
 ## Common Adaptation Mistakes
 
