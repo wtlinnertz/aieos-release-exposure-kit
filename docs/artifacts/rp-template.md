@@ -10,10 +10,11 @@ Generated from a frozen ORD and a frozen RCF. Must be validated and frozen befor
 
 | Field | Value |
 |-------|-------|
-| RP ID | RP-{PROJECT}-{NNN} |
+| Artifact ID | RP-{PROJECT}-{NNN} |
+| Owner | {owner} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Freeze Pending / Frozen |
+| Status | DRAFT |
 | Upstream ORD | {ORD ID} — Status: Frozen |
 | Upstream RCF | {RCF ID} — Status: Frozen |
 | Release Summary | {1-2 sentences describing what is being released} |

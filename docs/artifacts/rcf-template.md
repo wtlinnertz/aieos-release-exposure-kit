@@ -10,11 +10,11 @@ The RCF is reusable across multiple release engagements. It is not regenerated p
 
 | Field | Value |
 |-------|-------|
-| RCF ID | RCF-{ORG/SCOPE}-{NNN} |
+| Artifact ID | RCF-{ORG/SCOPE}-{NNN} |
 | Owner | {team or role name — not an individual} |
 | Version | {version} |
 | Date | {date} |
-| Status | Draft / Validated / Freeze Pending / Frozen |
+| Status | DRAFT |
 | Applicability Scope | {which systems, teams, or products this RCF governs} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
