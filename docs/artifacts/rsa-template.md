@@ -4,9 +4,10 @@
 
 | Field | Value |
 |-------|-------|
-| RSA ID | RSA-{PROJECT}-{NNN} |
+| Artifact ID | RSA-{PROJECT}-{NNN} |
+| Owner | {owner} |
 | Date | {YYYY-MM-DD} |
-| Status | {Draft / Validated / Frozen} |
+| Status | DRAFT |
 | Release Scope | {what is being released — consistent with RER} |
 | RER Reference | {RER ID, confirmed Frozen} |
 | RCF Reference | {RCF ID, confirmed Frozen} |

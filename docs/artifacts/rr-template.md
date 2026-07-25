@@ -21,10 +21,11 @@ Every evidence entry in this document must be:
 
 | Field | Value |
 |-------|-------|
-| RR ID | RR-{PROJECT}-{NNN} |
+| Artifact ID | RR-{PROJECT}-{NNN} |
+| Owner | {owner} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Freeze Pending / Frozen |
+| Status | DRAFT |
 | Upstream RP | {RP ID} — Status: Frozen |
 | Release Start | {date and time} |
 | Release End | {date and time — when the release was declared complete or abandoned} |

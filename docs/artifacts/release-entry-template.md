@@ -8,13 +8,17 @@ This record is **human-authored**. It is validated against `release-entry-spec.m
 
 ## Document Control
 
-- Record ID: (format: RER-{PROJECT}-{NNN})
-- Date:
-- Release Summary: (1-2 sentences describing what is being released)
-- Governance Model Version: 1.0
-- Prompt Version: N/A
-- Spec Version: {spec version}
-- Principles Version: {principles file versions}
+| Field | Value |
+|-------|-------|
+| Artifact ID | RER-{PROJECT}-{NNN} |
+| Owner | {owner} |
+| Status | DRAFT |
+| Date | |
+| Release Summary | (1-2 sentences describing what is being released) |
+| Governance Model Version | 1.0 |
+| Prompt Version | N/A |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 
